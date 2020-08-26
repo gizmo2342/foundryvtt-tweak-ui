@@ -1,0 +1,20 @@
+{
+  "name": "tweak-vtt",
+  "title": "UI Tweaks",
+  "description": "UI Tweaks, i.e. repositioning of pause indicator",
+  "version": "0.1.0",
+  "author": "Martin Brunninger",
+  "scripts": [
+    "./main.js",
+    "./pause.js"
+  ],
+  "styles": [
+    "./tweak.css"
+  ],
+  "packs": [],
+  "minimumCoreVersion": "0.5.7",
+  "compatibleCoreVersion": "0.6.5",
+  "url": "https://github.com/gizmo2342/foundryvtt-tweak-vtt",
+  "manifest": "https://github.com/gizmo2342/foundryvtt-tweak-vtt/raw/master/module.json",
+  "download": "https://github.com/gizmo2342/foundryvtt-tweak-vtt/archive/master.zip"
+}

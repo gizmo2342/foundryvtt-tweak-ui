@@ -1,0 +1,7 @@
+#pause.tweak-centered {
+  bottom: calc(50% - 50px);
+}
+#pause.tweak-top {
+  bottom: unset;
+  top: 100px;
+}
