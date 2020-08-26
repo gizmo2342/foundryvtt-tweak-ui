@@ -5,7 +5,7 @@
   "version": "0.1.1",
   "author": "Martin Brunninger",
   "scripts": [
-    "./main.js"
+    "./tweak.js"
   ],
   "styles": [
     "./tweak.css"
