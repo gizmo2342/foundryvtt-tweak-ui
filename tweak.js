@@ -106,7 +106,9 @@ class TweakImportHeaderButton {
     }
 
     if (TweakImportHeaderButton.hideAlways || !permission) {
-      html.find(".window-header .import").hide();
+      // NOTE: when called for a newly opened entity, "html" contains the outerHTML
+      // when called on updates, "html" contains the innerHTML
+      html.closest(".app").find(".window-header .import").hide();
     }
   }
 }
