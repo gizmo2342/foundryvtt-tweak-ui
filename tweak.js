@@ -150,7 +150,10 @@ class TweakUniqueCompendiumEntities {
 
   static _findOpenEntity(pack, entryId) {
     const filtered = Object.values(ui.windows).filter(el => {
-      return (el.object.data._id === entryId) && (el.object.compendium === pack);
+      if (!el.object) return false;
+      if (el.object.data._id !== entryId) return false;
+      if (el.object.compendium !== pack) return false;
+      return true;
     });
 
     if (filtered.length > 0) return filtered[0].object;
