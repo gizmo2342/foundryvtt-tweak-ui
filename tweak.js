@@ -125,8 +125,7 @@ class TweakUniqueCompendiumEntities {
       scope: "client",
       config: true,
       default: true,
-      type: Boolean,
-      onChange: TweakUniqueCompendiumEntities.install
+      type: Boolean
     });
   }
 
