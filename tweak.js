@@ -8,11 +8,12 @@
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
-
   TweakPauseIndicator.registerSettings();
   TweakPauseIndicator.install();
   TweakImportHeaderButton.registerSettings();
   TweakImportHeaderButton.install();
+  TweakUniqueCompendiumEntities.registerSettings();
+  TweakUniqueCompendiumEntities.install();
 });
 
 class TweakVTT {
@@ -110,3 +111,49 @@ class TweakImportHeaderButton {
   }
 }
 
+class TweakUniqueCompendiumEntities {
+
+  static get SETTINGS_KEY() { return "uniqueCompendiumEnities"; }
+
+  static registerSettings() {
+    // Register system settings
+    game.settings.register(TweakVTT.SCOPE, TweakUniqueCompendiumEntities.SETTINGS_KEY, {
+      name: "Unique Compendium Entities",
+      hint: "Make compendium entity dialogs unique (only one dialog per entity).",
+      scope: "client",
+      config: true,
+      default: true,
+      type: Boolean,
+      onChange: TweakUniqueCompendiumEntities.install
+    });
+  }
+
+  static get enabled() {
+    return game.settings.get(TweakVTT.SCOPE, TweakUniqueCompendiumEntities.SETTINGS_KEY);
+  }
+
+  static install() {
+    this._fvttFn = Compendium.prototype.getEntity;
+    Compendium.prototype.getEntity = TweakUniqueCompendiumEntities._getEntity;
+  }
+
+  static _getEntity(entryId) {
+    // IMPORTANT: this function is called in the context of a Compendium instance,
+    // therefore "this" will point to that instance!
+    console.log("tweak called");
+    if (TweakUniqueCompendiumEntities.enabled) {
+      const entity = TweakUniqueCompendiumEntities._findOpenEntity(this, entryId);
+      if (entity) return entity;
+    }
+    return TweakUniqueCompendiumEntities._fvttFn.bind(this)(entryId);
+  }
+
+  static _findOpenEntity(pack, entryId) {
+    const filtered = Object.values(ui.windows).filter(el => {
+      return (el.object.data._id === entryId) && (el.object.compendium === pack);
+    });
+
+    if (filtered.length > 0) return filtered[0].object;
+    return undefined;
+  }
+}

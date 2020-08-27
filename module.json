@@ -1,8 +1,8 @@
 {
   "name": "tweak-vtt",
   "title": "UI Tweaks",
-  "description": "Configurable UI Tweaks, i.e. repositioning of pause indicator, hiding import button for compendium entities",
-  "version": "0.1.1",
+  "description": "Configurable UI Tweaks, i.e. repositioning of pause indicator, hiding import button for compendium entities, unique compendium entities",
+  "version": "0.1.2",
   "author": "Martin Brunninger",
   "scripts": [
     "./tweak.js"
