@@ -182,10 +182,10 @@ class TweakUniqueCompendiumEntities {
 
   static install() {
     this._fvttFn = Compendium.prototype.getEntity;
-    Compendium.prototype.getEntity = TweakUniqueCompendiumEntities._getEntity;
+    Compendium.prototype.getEntity = TweakUniqueCompendiumEntities.prototype._getEntity;
   }
 
-  static _getEntity(entryId) {
+  async _getEntity(entryId) {
     // IMPORTANT: this function is called in the context of a Compendium instance,
     // therefore "this" will point to that instance!
     if (TweakUniqueCompendiumEntities.enabled) {
