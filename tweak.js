@@ -45,16 +45,18 @@ class TweakPauseIndicator {
   }
 
   static install() {
-    Hooks.on("renderPause", async function() {
-      const pos = TweakPauseIndicator.position;
-      if (pos === "fvtt") return;
+    Hooks.on("renderPause", TweakPauseIndicator._adjustPauseIndicator);
+  }
 
-      let app = $.find("#pause");
-      if (app && app[0]) {
-        app = app[0];
-        app.classList.add(`tweak-${pos}`);
-      }
-    });
+  static _adjustPauseIndicator() {
+    const pos = TweakPauseIndicator.position;
+    if (pos === "fvtt") return;
+
+    let app = $.find("#pause");
+    if (app && app[0]) {
+      app = app[0];
+      app.classList.add(`tweak-${pos}`);
+    }
   }
 }
 
