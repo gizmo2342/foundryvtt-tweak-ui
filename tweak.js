@@ -141,7 +141,6 @@ class TweakUniqueCompendiumEntities {
   static _getEntity(entryId) {
     // IMPORTANT: this function is called in the context of a Compendium instance,
     // therefore "this" will point to that instance!
-    console.log("tweak called");
     if (TweakUniqueCompendiumEntities.enabled) {
       const entity = TweakUniqueCompendiumEntities._findOpenEntity(this, entryId);
       if (entity) return entity;
