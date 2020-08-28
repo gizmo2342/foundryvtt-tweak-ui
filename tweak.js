@@ -12,10 +12,10 @@ Hooks.once("init", async function() {
   TweakPauseIndicator.install();
   TweakFloatDialogTop.registerSettings();
   TweakFloatDialogTop.install();
-  TweakImportHeaderButton.registerSettings();
-  TweakImportHeaderButton.install();
   TweakUniqueCompendiumEntities.registerSettings();
   TweakUniqueCompendiumEntities.install();
+  TweakImportHeaderButton.registerSettings();
+  TweakImportHeaderButton.install();
 });
 
 class TweakVTT {
