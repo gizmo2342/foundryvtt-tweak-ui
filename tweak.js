@@ -86,7 +86,6 @@ class TweakFloatDialogTop {
   async _render(force=false, options={}) {
     // IMPORTANT: this function is called in the context of an Application instance,
     // therefore "this" will point to that instance!
-    console.log("_render called", force);
     await TweakFloatDialogTop._fvttFn.bind(this)(force, options);
     if (force) {
       TweakFloatDialogTop._floatTop(this);
@@ -94,7 +93,6 @@ class TweakFloatDialogTop {
   }
 
   static _floatTop(app) {
-    console.log("float called");
     if (TweakFloatDialogTop.enabled && app.element && app.element.length) {
       const element = app.element[0];
       let z = Number(window.document.defaultView.getComputedStyle(element).zIndex);
