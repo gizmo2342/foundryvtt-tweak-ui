@@ -8,12 +8,21 @@
 /* -------------------------------------------- */
 
 Hooks.once("init", async function() {
+  const foundry = game.data.version;
+
   TweakPauseIndicator.registerSettings();
   TweakPauseIndicator.install();
+
   TweakFloatDialogTop.registerSettings();
   TweakFloatDialogTop.install();
-  TweakUniqueCompendiumEntities.registerSettings();
-  TweakUniqueCompendiumEntities.install();
+
+  if (! isNewerVersion(foundry, "0.7.1")) {
+    // obsolete since fvtt 0.7.2
+    TweakUniqueCompendiumEntities.registerSettings();
+    TweakUniqueCompendiumEntities.install();
+  }
+  // TODO: cleanup: delete old configuration when finally removed
+
   TweakImportHeaderButton.registerSettings();
   TweakImportHeaderButton.install();
 });
@@ -170,7 +179,7 @@ class TweakUniqueCompendiumEntities {
     // Register system settings
     game.settings.register(TweakVTT.SCOPE, TweakUniqueCompendiumEntities.SETTINGS_KEY, {
       name: "Unique Compendium Entities",
-      hint: "Make compendium entity dialogs unique (only one dialog per entity).",
+      hint: "(FVTT <= 0.7.2 only) Make compendium entity dialogs unique (only one dialog per entity).",
       scope: "client",
       config: true,
       default: true,
