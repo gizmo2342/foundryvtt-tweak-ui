@@ -110,6 +110,7 @@ class TweakFloatDialogTop {
       if ( z <= _maxZ ) {
         element.style.zIndex = Math.min(++_maxZ, 9999);
       }
+      app.maximize();
     }
   }
 }
