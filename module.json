@@ -2,7 +2,7 @@
   "name": "tweak-vtt",
   "title": "UI Tweaks",
   "description": "Configurable UI Tweaks, i.e. repositioning of pause indicator, float dialogs to top if they are (re-)opened, unique compendium entities, hiding import button for compendium entities",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "author": "Martin Brunninger",
   "scripts": [
     "./tweak.js"
@@ -11,8 +11,8 @@
     "./tweak.css"
   ],
   "packs": [],
-  "minimumCoreVersion": "0.5.7",
-  "compatibleCoreVersion": "0.6.5",
+  "minimumCoreVersion": "0.7.2",
+  "compatibleCoreVersion": "0.7.5",
   "url": "https://github.com/gizmo2342/foundryvtt-tweak-vtt",
   "manifest": "https://github.com/gizmo2342/foundryvtt-tweak-vtt/raw/master/module.json",
   "download": "https://github.com/gizmo2342/foundryvtt-tweak-vtt/archive/master.zip"
